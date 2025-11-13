@@ -12,7 +12,8 @@ const ProductFilter = ({ selectedType, onTypeChange }) => {
   return (
     <Box
       sx={{
-        position: { xs: 'static', md: 'sticky' },
+        display: { xs: 'none', sm: 'none', md: 'block' },
+        position: { md: 'sticky' },
         top: { md: 120 },
         height: 'fit-content',
       }}
