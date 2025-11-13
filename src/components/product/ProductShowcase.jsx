@@ -206,7 +206,7 @@ const ProductShowcase = () => {
               <Grid
                 ref={gridRef}
                 container
-                rowSpacing={{ xs: 3, md: 9 }}
+                rowSpacing={{ xs: 6, md: 9 }}
                 columnSpacing={{ xs: 2, sm: 3, md: 4, lg: 5 }}
               >
                 {filteredProducts.map((product, index) => (

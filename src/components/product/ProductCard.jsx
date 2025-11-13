@@ -32,7 +32,7 @@ const ProductCard = ({ product, timelineValue = 0, index = 0 }) => {
         backgroundColor: 'transparent',
       }}
     >
-      <Stack spacing={3}>
+      <Stack spacing={2}>
         {/* Thumbnail Area */}
         <Box
           sx={{

@@ -1,5 +1,7 @@
 import { useState, useEffect, memo } from 'react';
 import { Box, Typography, Stack } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { Sun, Moon } from '@phosphor-icons/react';
 import { useTimeline } from '../../contexts/TimelineContext';
 import { content } from '../../data/content';
@@ -32,9 +34,12 @@ const Header = memo(() => {
   const { timelineValue, isSliderAboveHeader } = useTimeline();
   const [currentTime, setCurrentTime] = useState(formatCurrentTime(new Date()));
   const isDark = timelineValue >= 0.5;
+  const theme = useTheme();
+  const isBelowMd = useMediaQuery(theme.breakpoints.down('md'));
 
   // Show minimal slider only when TimelineSlider is above header line
   const showMinimalSlider = isSliderAboveHeader;
+  const shouldShowInlineSlider = showMinimalSlider && isBelowMd;
 
   // Update time every second
   useEffect(() => {
@@ -75,18 +80,33 @@ const Header = memo(() => {
         }}
       >
         {/* Left - Logo */}
-        <Box sx={{ flex: 1 }}>
-          <Typography
-            variant="h5"
-            sx={{
-              fontFamily: '"Tiempos Headline", serif',
-              fontWeight: 700,
-              letterSpacing: '-0.0em',
-              fontSize: { xs: '1.25rem', md: '1.5rem' },
-            }}
-          >
-            {content.brand.name}
-          </Typography>
+        <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
+          {!shouldShowInlineSlider && (
+            <Typography
+              variant="h5"
+              sx={{
+                fontFamily: '"Tiempos Headline", serif',
+                fontWeight: 700,
+                letterSpacing: '-0.0em',
+                fontSize: { xs: '1.25rem', md: '1.5rem' },
+                transition: 'opacity 0.3s cubic-bezier(0.618, 0.0, 0.382, 1.0)',
+              }}
+            >
+              {content.brand.name}
+            </Typography>
+          )}
+          {shouldShowInlineSlider && (
+            <Box
+              sx={{
+                display: { xs: 'block', md: 'none' },
+                width: '100%',
+                maxWidth: { xs: '200px', sm: '260px' },
+                ml: { xs: 1.5, sm: 2 },
+              }}
+            >
+              <MinimalTimelineSlider />
+            </Box>
+          )}
         </Box>
 
         {/* Center - Minimal Timeline Slider (shown when main slider scrolled past) */}
@@ -102,6 +122,9 @@ const Header = memo(() => {
             transition: 'opacity 0.3s cubic-bezier(0.618, 0.0, 0.382, 1.0), visibility 0.3s',
             willChange: 'opacity, visibility',
             contain: 'layout style paint',
+            display: shouldShowInlineSlider
+              ? { xs: 'none', sm: 'none', md: 'block' }
+              : { xs: 'block', sm: 'block', md: 'block' },
           }}
         >
           {showMinimalSlider && <MinimalTimelineSlider />}
