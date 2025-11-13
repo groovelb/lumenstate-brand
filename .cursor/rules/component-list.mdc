@@ -1,0 +1,220 @@
+# Lumenstate Component List
+
+## 주요 섹션 (Sections)
+
+### 1. Hero Section
+- 3단계 크로스페이드 루프 애니메이션 (낮→저녁→밤)
+- 브랜드 헤드라인 및 서브카피
+- CTA 버튼
+
+### 2. Product Showcase Section
+- 그리드 레이아웃 (Desktop 3×2, Mobile 2열)
+- 타임라인 스크러버 컨트롤
+- 제품 카드 컬렉션
+
+---
+
+## 필요한 컴포넌트 (Components)
+
+### Layout Components
+1. **Header** - 상단 네비게이션/로고
+   - 파일: `src/components/layout/Header.jsx`
+   - 역할: 사이트 상단 고정 헤더, 브랜드 로고, ThemeToggle 포함
+
+2. **Footer** - 하단 정보 영역
+   - 파일: `src/components/layout/Footer.jsx`
+   - 역할: 저작권, 링크 등 사이트 하단 정보
+
+3. **Container** - 반응형 레이아웃 래퍼
+   - 파일: `src/components/layout/Container.jsx`
+   - 역할: 최대 너비, 패딩 등 일관된 레이아웃 컨테이너
+
+---
+
+### Hero Components
+4. **HeroSection** - 히어로 섹션 전체 컨테이너
+   - 파일: `src/components/hero/HeroSection.jsx`
+   - 역할: 히어로 영역 전체를 감싸는 메인 컨테이너
+   - 포함: HeroCrossfade, HeroHeadline, HeroSubtext, HeroCTA
+
+5. **HeroCrossfade** - 3단계 이미지 크로스페이드 애니메이션
+   - 파일: `src/components/hero/HeroCrossfade.jsx`
+   - 역할: 낮/저녁/밤 3단계 배경 이미지 자동 크로스페이드
+   - 기술: CSS transitions, easeInOutSine, 600·900·1200ms
+   - 접근성: prefers-reduced-motion 대응
+
+6. **HeroHeadline** - 메인 헤드라인
+   - 파일: `src/components/hero/HeroHeadline.jsx`
+   - 역할: "빛은 공간의 상태다. (Light is the state of space.)" 표시
+
+7. **HeroSubtext** - 서브 카피
+   - 파일: `src/components/hero/HeroSubtext.jsx`
+   - 역할: "하루의 곡선을 따라 조도·색온도를 부드럽게 조율합니다." 표시
+
+8. **HeroCTA** - CTA 버튼 그룹
+   - 파일: `src/components/hero/HeroCTA.jsx`
+   - 역할: "제품 보기" / "하루 리듬 시연" 버튼
+
+---
+
+### Product Showcase Components
+9. **ProductShowcase** - 제품 쇼케이스 섹션 컨테이너
+   - 파일: `src/components/product/ProductShowcase.jsx`
+   - 역할: 제품 그리드와 타임라인 컨트롤을 포함하는 섹션
+   - 포함: TimelineSlider, ProductGrid
+
+10. **ProductGrid** - 반응형 제품 그리드
+    - 파일: `src/components/product/ProductGrid.jsx`
+    - 역할: Desktop 3×2, Mobile 2열 그리드 레이아웃
+    - 자식: ProductCard 컴포넌트 배열
+
+11. **ProductCard** - 개별 제품 카드
+    - 파일: `src/components/product/ProductCard.jsx`
+    - 역할: 단일 제품 정보 카드
+    - 구성:
+      - 썸네일 (모션 비디오/Canvas로 타임라인 시킹)
+      - 제품명
+      - 마감 태그
+      - StateLabel (조도·색온도)
+    - Props: `product`, `timelineValue` (0-1)
+
+12. **TimelineSlider** - 타임라인 스크러버
+    - 파일: `src/components/product/TimelineSlider.jsx`
+    - 역할: 0-1 구간 슬라이더, 낮·저녁·밤 마커 표시
+    - 기능: onChange 이벤트로 타임라인 값 전달
+    - 기술: MUI Slider 커스터마이징
+
+13. **StateLabel** - 조도/색온도 표시 라벨
+    - 파일: `src/components/product/StateLabel.jsx`
+    - 역할: "260 lx · 3200 K" 형식으로 실시간 상태 표시
+    - Props: `lux`, `kelvin`
+
+---
+
+### Shared/Utility Components
+14. **ThemeToggle** - 다크모드 토글
+    - 파일: `src/components/shared/ThemeToggle.jsx`
+    - 역할: 라이트/다크 모드 전환 버튼
+    - 기술: MUI IconButton, useTheme hook
+
+15. **LazyImage** - Lazy-load 이미지 래퍼
+    - 파일: `src/components/shared/LazyImage.jsx`
+    - 역할: Intersection Observer 기반 이미지 지연 로딩
+    - Props: `src`, `alt`, `placeholder`
+
+16. **MotionWrapper** - 모션 접근성 래퍼
+    - 파일: `src/components/shared/MotionWrapper.jsx`
+    - 역할: prefers-reduced-motion 감지 및 애니메이션 제어
+    - 기술: matchMedia API
+
+17. **VideoTimeline** - 비디오 타임라인 컨트롤러
+    - 파일: `src/components/shared/VideoTimeline.jsx`
+    - 역할: video.currentTime 제어를 통한 타임라인 시킹
+    - Props: `videoRef`, `timelineValue` (0-1)
+
+---
+
+## 폴더 구조
+
+```
+src/
+├── components/
+│   ├── layout/
+│   │   ├── Header.jsx
+│   │   ├── Footer.jsx
+│   │   └── Container.jsx
+│   ├── hero/
+│   │   ├── HeroSection.jsx
+│   │   ├── HeroCrossfade.jsx
+│   │   ├── HeroHeadline.jsx
+│   │   ├── HeroSubtext.jsx
+│   │   └── HeroCTA.jsx
+│   ├── product/
+│   │   ├── ProductShowcase.jsx
+│   │   ├── ProductGrid.jsx
+│   │   ├── ProductCard.jsx
+│   │   ├── TimelineSlider.jsx
+│   │   └── StateLabel.jsx
+│   └── shared/
+│       ├── ThemeToggle.jsx
+│       ├── LazyImage.jsx
+│       ├── MotionWrapper.jsx
+│       └── VideoTimeline.jsx
+├── theme.js
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+## 핵심 기능 구현 매핑
+
+### [F-1] 히어로 3단계 루프 모션
+- 담당 컴포넌트: `HeroCrossfade`
+- 구현: CSS transitions + useEffect 타이머
+- 모션: easeInOutSine, 600·900·1200ms
+
+### [F-2] 쇼케이스 타임라인 스크러버
+- 담당 컴포넌트: `TimelineSlider` + `VideoTimeline` + `ProductCard`
+- 구현: Slider onChange → video.currentTime 시킹 → StateLabel 업데이트
+- 주의: 이미지 교체 방식 금지, 단일 모션 소스 사용
+
+### [F-3] Lazy-load
+- 담당 컴포넌트: `LazyImage`
+- 구현: Intersection Observer API
+- 적용: ProductCard 썸네일
+
+### [F-4] 다크모드
+- 담당 컴포넌트: `ThemeToggle` + `theme.js`
+- 구현: MUI ThemeProvider palette 모드 전환
+- 컬러: 4색 스킴 (#F5F2EE, #F2E9DA, #12100E, #FFC66E)
+
+---
+
+## 컬러 스킴 (4색 제한)
+
+```javascript
+// theme.js에 정의될 컬러
+const colors = {
+  wallTintWhite: '#F5F2EE',   // 라이트 배경
+  white3800K: '#F2E9DA',       // 따뜻한 백색
+  warmBlack: '#12100E',        // 다크 배경
+  accent3800K: '#FFC66E',      // 액센트
+}
+
+// 라이트 모드
+background: #F5F2EE
+text: #12100E
+textSecondary: rgba(18, 16, 14, 0.8)
+accent: #FFC66E
+
+// 다크 모드
+background: #12100E
+text: #F2E9DA
+textSecondary: rgba(242, 233, 218, 0.8)
+accent: #FFC66E
+```
+
+---
+
+## 개발 우선순위
+
+### Phase 1: 기본 레이아웃
+1. Container, Header, Footer
+2. 4색 스킴 theme.js 업데이트
+3. ThemeToggle
+
+### Phase 2: Hero Section
+4. HeroSection 구조
+5. HeroHeadline, HeroSubtext, HeroCTA
+6. HeroCrossfade (3단계 애니메이션)
+
+### Phase 3: Product Showcase
+7. ProductShowcase, ProductGrid
+8. ProductCard (정적 버전)
+9. TimelineSlider
+10. VideoTimeline + StateLabel 통합
+
+### Phase 4: 최적화
+11. LazyImage, MotionWrapper
+12. 접근성 검증 (WCAG AA, prefers-reduced-motion)
