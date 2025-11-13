@@ -13,6 +13,8 @@ const config = {
     "@storybook/addon-a11y",
     "@storybook/addon-vitest"
   ],
+  // Serve static assets from /public so /product/* media works in stories
+  "staticDirs": ["../public"],
   "framework": {
     "name": "@storybook/react-vite",
     "options": {}

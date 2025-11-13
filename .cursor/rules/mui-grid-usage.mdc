@@ -1,7 +1,7 @@
 ---
 description: task require MUI Grid component
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 - Grid 컴퍼넌트의 경우 아래 코드에 명시된 import 구문과 props를 참고해줘.
 
