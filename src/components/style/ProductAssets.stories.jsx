@@ -2,7 +2,7 @@ import { Box, Grid, Stack, Typography } from '@mui/material';
 import { productAssets } from '../../assets/product';
 
 export default {
-  title: '1. Style/Assets · Product',
+  title: '01. Style/Assets · Product',
   parameters: { layout: 'padded' },
 };
 

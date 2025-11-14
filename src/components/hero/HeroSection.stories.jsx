@@ -2,7 +2,7 @@ import HeroSection from './HeroSection';
 import { withTimelineValues } from '../../stories/decorators/SetTimelineValues.jsx';
 
 export default {
-  title: '3. Templates/HeroSection',
+  title: '03. Templates/HeroSection',
   component: HeroSection,
   tags: ['autodocs'],
   parameters: {

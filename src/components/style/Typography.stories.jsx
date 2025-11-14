@@ -1,7 +1,7 @@
 import { Box, Stack, Typography, Divider } from '@mui/material';
 
 export default {
-  title: '1. Style/Typography',
+  title: '01. Style/Typography',
   parameters: { layout: 'padded' },
 };
 

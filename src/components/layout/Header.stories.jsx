@@ -2,7 +2,7 @@ import Header from './Header';
 import { withTimelineValues } from '../../stories/decorators/SetTimelineValues.jsx';
 
 export default {
-  title: '2. Components/Layout/Header',
+  title: '02. Components/Layout/Header',
   component: Header,
   tags: ['autodocs'],
   parameters: {

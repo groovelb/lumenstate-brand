@@ -3,7 +3,7 @@ import { withTimelineValues } from '../../stories/decorators/SetTimelineValues.j
 import { Box } from '@mui/material';
 
 export default {
-  title: '2. Components/Shared/TimelineSlider',
+  title: '02. Components/Shared/TimelineSlider',
   component: TimelineSlider,
   tags: ['autodocs'],
   parameters: {

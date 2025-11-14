@@ -2,7 +2,7 @@ import { Box, Grid, Stack, Typography } from '@mui/material';
 import { Sun, Moon, SunHorizon, SunDim, CircleHalf, Repeat, WaveSine } from '@phosphor-icons/react';
 
 export default {
-  title: '1. Style/Icons',
+  title: '01. Style/Icons',
   parameters: { layout: 'padded' },
 };
 

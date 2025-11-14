@@ -2,7 +2,7 @@ import ScrollVideo from './ScrollVideo';
 import { Box } from '@mui/material';
 
 export default {
-  title: '2. Components/Shared/ScrollVideo',
+  title: '02. Components/Shared/ScrollVideo',
   component: ScrollVideo,
   tags: ['autodocs'],
   parameters: {

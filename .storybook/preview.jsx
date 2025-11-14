@@ -15,52 +15,46 @@ function DynamicThemeDecorator({ children }) {
   );
 }
 
-export const parameters = {
-  layout: 'fullscreen',
-  controls: { expanded: true },
-  docs: { source: { state: 'shown' } },
-  viewport: { defaultViewport: 'responsive' },
-  options: {
-    showRoots: true,
-    storySort: {
-      method: 'alphabetical',
-      order: ['00. Overview', '1. Style', '2. Component', '3. Template', '4. Data', '*'],
-      locales: 'en-US',
-    },
-  },
-  backgrounds: {
-    default: 'light',
-    values: [
-      { name: 'light', value: '#ffffff' },
-      { name: 'dark', value: '#12100E' },
-    ],
-  },
-};
-
-export const decorators = [
-  (Story) => (
-    <TimelineProvider>
-      <DynamicThemeDecorator>
-        <Story />
-      </DynamicThemeDecorator>
-    </TimelineProvider>
-  ),
-];
-
 /** @type { import('@storybook/react-vite').Preview } */
 const preview = {
   parameters: {
+    layout: 'fullscreen',
     controls: {
+      expanded: true,
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
     },
+    docs: { source: { state: 'shown' } },
+    viewport: { defaultViewport: 'responsive' },
     a11y: {
       test: 'todo',
     },
+    options: {
+      showRoots: true,
+      storySort: {
+        order: ['00. Overview', '01. Style', '02. Components', '03. Templates', '04. Data'],
+      },
+    },
+    backgrounds: {
+      default: 'light',
+      values: [
+        { name: 'light', value: '#ffffff' },
+        { name: 'dark', value: '#12100E' },
+      ],
+    },
   },
+
+  decorators: [
+    (Story) => (
+      <TimelineProvider>
+        <DynamicThemeDecorator>
+          <Story />
+        </DynamicThemeDecorator>
+      </TimelineProvider>
+    ),
+  ],
 };
 
 export default preview;
-

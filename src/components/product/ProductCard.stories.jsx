@@ -6,7 +6,7 @@ import { Box } from '@mui/material';
 const sample = products[0];
 
 export default {
-  title: '2. Components/Product/ProductCard',
+  title: '02. Components/Product/ProductCard',
   component: ProductCard,
   tags: ['autodocs'],
   parameters: {

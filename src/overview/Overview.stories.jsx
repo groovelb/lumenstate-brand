@@ -1,7 +1,7 @@
 import { Box, Stack, Typography } from '@mui/material';
 
 export default {
-  title: '00. Overview',
+  title: '00. Overview/Introduction',
   parameters: {
     layout: 'padded',
     docs: {

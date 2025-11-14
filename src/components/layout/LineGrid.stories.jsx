@@ -2,7 +2,7 @@ import LineGrid from './LineGrid';
 import { Grid, Box, Typography } from '@mui/material';
 
 export default {
-  title: '2. Components/Layout/LineGrid',
+  title: '02. Components/Layout/LineGrid',
   component: LineGrid,
   tags: ['autodocs'],
   parameters: {

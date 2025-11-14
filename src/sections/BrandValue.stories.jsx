@@ -1,7 +1,7 @@
 import BrandValue from './BrandValue';
 
 export default {
-  title: '3. Templates/BrandValue',
+  title: '03. Templates/BrandValue',
   component: BrandValue,
   tags: ['autodocs'],
   parameters: {

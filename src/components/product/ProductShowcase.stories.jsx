@@ -2,7 +2,7 @@ import ProductShowcase from './ProductShowcase';
 import { withTimelineValues } from '../../stories/decorators/SetTimelineValues.jsx';
 
 export default {
-  title: '3. Templates/ProductShowcase',
+  title: '03. Templates/ProductShowcase',
   component: ProductShowcase,
   tags: ['autodocs'],
   parameters: {

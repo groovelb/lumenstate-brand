@@ -2,7 +2,7 @@ import { Box, Stack, Typography, Chip, Grid } from '@mui/material';
 import products from './products';
 
 export default {
-  title: '4. Data/Products',
+  title: '04. Data/Products',
   parameters: { layout: 'padded' },
 };
 
