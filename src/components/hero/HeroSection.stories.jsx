@@ -1,5 +1,6 @@
 import HeroSection from './HeroSection';
 import { withTimelineValues } from '../../stories/decorators/SetTimelineValues.jsx';
+import { Box } from '@mui/material';
 
 export default {
   title: '03. Templates/HeroSection',
@@ -14,7 +15,17 @@ export default {
       },
     },
   },
-  decorators: [withTimelineValues({ timelineValue: 0.33 })],
+  decorators: [
+    withTimelineValues({ timelineValue: 0.33 }),
+    (Story) => (
+      <Box sx={{ height: '300vh' }}>
+        <Story />
+        <Box sx={{ height: '200vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'text.secondary' }}>
+          Scroll to see video effects
+        </Box>
+      </Box>
+    ),
+  ],
 };
 
 export const Desktop = {};
